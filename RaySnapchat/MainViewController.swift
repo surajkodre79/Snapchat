@@ -85,7 +85,6 @@ extension MainViewController : ScrollViewControllerDelegate {
         let result = ((x - min) / (max - min)) - 1
         print(result)
         
-        
         if result < 0 {
             transparentColorView.backgroundColor = .blue
         } else if result > 0 {
