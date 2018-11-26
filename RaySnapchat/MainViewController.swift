@@ -13,6 +13,8 @@ protocol ColoredView {
 }
 
 class MainViewController: UIViewController {
+    @IBOutlet weak var transparentColorView: UIView!
+    
     @IBOutlet weak var animationView: AnimationView!
     
     @IBOutlet weak var chatAndDiscoverButtonWidthConstraint: NSLayoutConstraint!
@@ -83,6 +85,14 @@ extension MainViewController : ScrollViewControllerDelegate {
         let result = ((x - min) / (max - min)) - 1
         print(result)
         
+        
+        if result < 0 {
+            transparentColorView.backgroundColor = .blue
+        } else if result > 0 {
+            transparentColorView.backgroundColor = .purple
+        } else if result == 0 {
+            transparentColorView.backgroundColor = .white
+        }
         animationView.animation(to: result)
     }
     
